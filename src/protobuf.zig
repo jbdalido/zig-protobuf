@@ -416,7 +416,6 @@ fn internal_pb_encode(pb: *Writer, data: anytype) !void {
     const fields = switch (@typeInfo(@TypeOf(data))) {
         .Struct => |info| info.fields,
         else => blk: {
-            @compileLog(data);
             break :blk &.{};
         },
     };
